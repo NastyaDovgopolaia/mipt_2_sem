@@ -3,62 +3,52 @@
 
 using namespace std;
 
-int Foo(int a, int b, int *pa, int *pb) {
-    (*pa) = b;
 
-    (*pb) = a;
-}
-int Fooo(int arr[], int arr_size) {
+int Foo1(int num[], int a, int b)
+{
+  int maX;
+  int All = 0;
 
-    int size_arr1, size_arr2;
-
-    vector<int> Left, Right, General;
-
-    for (int i = 1; i < arr_size; i++) {
-        if (arr[i] < arr[0]) {
-            Left.push_back(arr[i]);
-        } else {
-            Right.push_back(arr[i]);
-        }
+  while (a * 2 <= b && (!All))
+  {
+    if (a * 2 == b) {
+      maX = a * 2;
+    }
+    else if (num[a * 2] > num[a * 2 + 1]) {
+      maX = a * 2;
+    }
+    else {
+      maX = a * 2 + 1;
     }
 
-    size_arr1 = Left.size();
-    size_arr2 = Right.size();
-
-    int arr1[size_arr1], arr2[size_arr2];
-
-    for (int i = 0; i < Left.size(); i++) {
-        arr1[i] = Left[i];
+    if (num[a] < num[maX]) {
+      int t = num[a];
+      num[a] = num[maX];
+      num[maX] = t;
+      a = maX;
     }
-
-    for (int i = 0; i < Right.size(); i++) {
-        arr2[i] = Right[i];
+    else {
+      All = 1;
     }
-
-    if (Left.size() >= 2) {
-       Fooo(arr1, size_arr1);
-    }
-    if (Right.size() >= 2) {
-        Fooo(arr2, size_arr2);
-    }
-
-
-    for (int i = 0; i < Left.size(); i++) {
-        General.push_back(arr1[i]);
-    }
-    General.push_back(arr[0]);
-    for (int i = 0; i < Right.size(); i++) {
-        General.push_back(arr2[i]);
-    }
-
-    for (int i = 0; i < General.size(); i++) {
-        arr[i] = General[i];
-    }
-
+  }
 }
 
-int main() {
+int Foo2(int num[], int num_size)
+{
 
+  for (int i = num_size / 2; i >= 0; i--)
+    Foo1(num, i, num_size - 1);
+
+  for (int i = num_size - 1; i >= 1; i--)
+  {
+    int t = num[0];
+    num[0] = num[i];
+    num[i] = t;
+    Foo1(num, 0, i - 1);
+  }
+}
+int main()
+{
     int n;
     cin >> n;
     vector<int> A;
@@ -86,12 +76,10 @@ int main() {
     }
     cout << endl;
 
-    Fooo(arr, n);
+    Foo2(arr, n);
 
     for (int i = 0; i < n; i++) {
         cout << arr[i] << "\t";
     }
     cout << endl;
-
-
 }
