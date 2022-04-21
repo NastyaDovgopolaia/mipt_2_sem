@@ -23,15 +23,6 @@ int main() {
 
     cin >> middle;
 
-    for (int i = 0; i < 5; i++) {
-        cout << arr_mark[i] << "\t";
-    }
-    cout << endl;
-
-    for (int i = 0; i < 5; i++) {
-        cout << arr_student[i] << "\t";
-    }
-    cout << endl;
 
     for (int i = 0; i < 5; i++) {
         if (arr_mark[i] < middle) {
