@@ -1,13 +1,9 @@
-#include<iostream>
+# include<iostream>
 # include <vector>
 
 using namespace std;
 
-int Foo(int a, int b, int *pa, int *pb) {
-    (*pa) = b;
 
-    (*pb) = a;
-}
 int Fooo(int arr[], int arr_size) {
 
     int size_arr1, size_arr2;
