@@ -46,11 +46,5 @@ int main() {
         if (arr[i] > maxi)
             maxi = arr[i];
 
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << "\t";
-    }
-    cout << endl;
-
-
     cout << maxi << endl;
 }
