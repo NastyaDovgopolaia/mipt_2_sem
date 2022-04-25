@@ -81,7 +81,6 @@ int main() {
             k++;
         }
     }
-    cout << k << endl;
 
     person good_students[k];
 
@@ -94,31 +93,16 @@ int main() {
         }
     }
 
-    for (int i = 0; i < k ; i++) {
-        cout << good_students[i].name << "\t";
-    }
-    cout << endl;
-
     int good_students_marks[k];
 
     for (int i = 0; i < k; i++) {
         good_students_marks[i] = good_students[i].mark;
     }
 
-    for (int i = 0; i < k ; i++) {
-        cout << good_students_marks[i] << "\t";
-    }
-    cout << endl;
-
     Fooo(good_students, num);
 
     for (int i = 0; i < k ; i++) {
         cout << good_students[i].name << "\t";
-    }
-    cout << endl;
-
-    for (int i = 0; i < k ; i++) {
-        cout << good_students[i].mark << "\t";
     }
     cout << endl;
 
